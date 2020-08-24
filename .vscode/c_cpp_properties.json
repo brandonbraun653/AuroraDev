@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Embedded",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "CONFIG_YAFFS_DEFINES_TYPES",
+                "CONFIG_YAFFS_DIRECT",
+                "CONFIG_YAFFS_PROVIDE_DEFS",
+                "CONFIG_YAFFSFS_PROVIDE_VALUES"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.28.29115/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

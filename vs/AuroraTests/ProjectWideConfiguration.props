@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <AuroraIncDir>$(SolutionDir)../../Aurora;$(SolutionDir)../../Aurora/lib/type_safe/include;$(SolutionDir)../../Aurora/lib/ctre/include;</AuroraIncDir>
+    <BoostIncDir>$(BOOST_ROOT)/boost_1_70_0</BoostIncDir>
+    <BoostCompilerDefines>BOOST_NO_EXCEPTIONS;</BoostCompilerDefines>
+    <ChimeraIncDir>$(SolutionDir)../../Aurora/Chimera;</ChimeraIncDir>
+    <ChimeraPortDir>$(SolutionDir)../../Aurora/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
+    <ChimeraCfgDir>$(SolutionDir)</ChimeraCfgDir>
+    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;USING_STL_THREADS;</ChimeraCompilerDefines>
+    <CRCIncDir>$(SolutionDir)../../Aurora/lib/CRCpp/inc</CRCIncDir>
+    <FreeRTOSIncDir></FreeRTOSIncDir>
+    <FreeRTOSCfgDir></FreeRTOSCfgDir>
+    <FreeRTOSPortDir></FreeRTOSPortDir>
+    <FreeRTOSCompilerDefines></FreeRTOSCompilerDefines>
+    <ProjectCompilerDefines>USING_STL_THREADS;BOOST_NO_EXCEPTIONS;</ProjectCompilerDefines>
+    <uLogIncDir>$(SolutionDir)../../Aurora/lib/uLog</uLogIncDir>
+    <YaffsIncDir>$(SolutionDir)../../Aurora/lib/yaffs;$(SolutionDir)../../Aurora/lib/yaffs/yaffs2;</YaffsIncDir>
+    <YaffsCompilerDefines>CONFIG_YAFFS_DEFINES_TYPES;CONFIG_YAFFS_DIRECT;CONFIG_YAFFS_PROVIDE_DEFS;CONFIG_YAFFSFS_PROVIDE_VALUES;</YaffsCompilerDefines>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="ChimeraIncDir">
+      <Value>$(ChimeraIncDir);</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ChimeraPortDir">
+      <Value>$(ChimeraPortDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ChimeraCfgDir">
+      <Value>$(ChimeraCfgDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ChimeraBackendIncDirs">
+      <Value>$(ChimeraBackendIncDirs)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ChimeraCompilerDefines">
+      <Value>$(ChimeraCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ChimeraBackendCompilerDefines">
+      <Value>$(ChimeraBackendCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="FreeRTOSIncDir">
+      <Value>$(FreeRTOSIncDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="FreeRTOSCfgDir">
+      <Value>$(FreeRTOSCfgDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="FreeRTOSPortDir">
+      <Value>$(FreeRTOSPortDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="FreeRTOSCompilerDefines">
+      <Value>$(FreeRTOSCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BoostIncDir">
+      <Value>$(BoostIncDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="BoostCompilerDefines">
+      <Value>$(BoostCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="YaffsIncDir">
+      <Value>$(YaffsIncDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="YaffsCompilerDefines">
+      <Value>$(YaffsCompilerDefines)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
