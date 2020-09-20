@@ -50,11 +50,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Aurora\Chimera\vs\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC.vcxproj">
-      <Project>{875e1f34-6708-4c7c-a6ec-74faba6b0bfb}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Aurora\vs\AuroraStaticLibrary\AuroraStaticLibrary\AuroraStaticLibrary.vcxproj">
       <Project>{603e057a-0d7f-4369-8268-4312e56afa59}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\lib\Chimera\vs\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC\ChimeraStaticLibraryMSVC.vcxproj">
+      <Project>{875e1f34-6708-4c7c-a6ec-74faba6b0bfb}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />

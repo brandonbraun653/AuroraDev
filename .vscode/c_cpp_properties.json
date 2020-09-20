@@ -3,7 +3,8 @@
         {
             "name": "Embedded",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/Aurora/lib/littlefs/lfs"
             ],
             "defines": [
                 "_DEBUG",

@@ -5,19 +5,19 @@
     <AuroraIncDir>$(SolutionDir)../../Aurora;$(SolutionDir)../../Aurora/lib/type_safe/include;$(SolutionDir)../../Aurora/lib/ctre/include;</AuroraIncDir>
     <BoostIncDir>$(BOOST_ROOT)/boost_1_70_0</BoostIncDir>
     <BoostCompilerDefines>BOOST_NO_EXCEPTIONS;</BoostCompilerDefines>
-    <ChimeraIncDir>$(SolutionDir)../../Aurora/Chimera;</ChimeraIncDir>
-    <ChimeraPortDir>$(SolutionDir)../../Aurora/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
+    <ChimeraIncDir>$(SolutionDir)../../lib/Chimera;</ChimeraIncDir>
+    <ChimeraPortDir>$(SolutionDir)../../lib/Chimera/Chimera/sim/config/chimera</ChimeraPortDir>
     <ChimeraCfgDir>$(SolutionDir)</ChimeraCfgDir>
-    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;USING_STL_THREADS;</ChimeraCompilerDefines>
+    <ChimeraCompilerDefines>CHIMERA_LITTLE_ENDIAN;USING_NATIVE_THREADS;</ChimeraCompilerDefines>
     <CRCIncDir>$(SolutionDir)../../Aurora/lib/CRCpp/inc</CRCIncDir>
     <FreeRTOSIncDir></FreeRTOSIncDir>
     <FreeRTOSCfgDir></FreeRTOSCfgDir>
     <FreeRTOSPortDir></FreeRTOSPortDir>
     <FreeRTOSCompilerDefines></FreeRTOSCompilerDefines>
-    <ProjectCompilerDefines>USING_STL_THREADS;BOOST_NO_EXCEPTIONS;</ProjectCompilerDefines>
+    <LittleFSIncDir>$(SolutionDir)../../Aurora/lib/littlefs/lfs</LittleFSIncDir>
+    <LittleFSCompilerDefines>LFS_NO_DEBUG;LFS_NO_WARN;LFS_NO_ERROR;LFS_NO_ASSERT;</LittleFSCompilerDefines>
+    <ProjectCompilerDefines>USING_NATIVE_THREADS;BOOST_NO_EXCEPTIONS;</ProjectCompilerDefines>
     <uLogIncDir>$(SolutionDir)../../Aurora/lib/uLog</uLogIncDir>
-    <YaffsIncDir>$(SolutionDir)../../Aurora/lib/yaffs;$(SolutionDir)../../Aurora/lib/yaffs/yaffs2;</YaffsIncDir>
-    <YaffsCompilerDefines>CONFIG_YAFFS_DEFINES_TYPES;CONFIG_YAFFS_DIRECT;CONFIG_YAFFS_PROVIDE_DEFS;CONFIG_YAFFSFS_PROVIDE_VALUES;</YaffsCompilerDefines>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
