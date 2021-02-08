@@ -17,6 +17,12 @@
   },
   "peacock.color": "#eb5424",
   "files.associations": {
-    "memory": "cpp"
-  }
+    "*.JLinkScript": "plaintext",
+    "memory": "cpp",
+    "thread": "cpp",
+    "pwm": "cpp"
+  },
+  "cSpell.words": [
+    "exti"
+  ]
 }
