@@ -13,7 +13,6 @@ target_include_directories(Test_PowerUp PRIVATE "." )
 target_link_libraries(Test_PowerUp PRIVATE
   # Public Includes
   aurora_intf_inc
-  Boost::boost
   chimera_intf_inc
 
   # Utility Libraries
