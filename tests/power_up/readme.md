@@ -1,1 +1,0 @@
-The purpose of this test is to ensure that the power up sequence works alright.

@@ -1,6 +1,7 @@
 {
     "env": {
         "defaultIncludePaths":[
+            "~/Programs/boost/boost_1_76_0",
             "${workspaceFolder}",
             "${workspaceFolder}/Aurora/include",
             "${workspaceFolder}/Aurora/include",
@@ -9,16 +10,18 @@
             "${workspaceFolder}/Aurora/lib/embedded_template_library/etl/include",
             "${workspaceFolder}/Aurora/lib/littlefs/lfs",
             "${workspaceFolder}/Aurora/lib/type_safe/include",
-            "${workspaceFolder}/Aurora/lib/uLog",
             "${workspaceFolder}/lib",
             "${workspaceFolder}/lib/Chimera/../",
             "${workspaceFolder}/lib/Chimera/include",
+            "${workspaceFolder}/lib/Chimera/source/**",
             "${workspaceFolder}/lib/CommonTools/cpputest/include",
             "${workspaceFolder}/lib/CommonTools/googletest",
-            "${BOOST_ROOT}/boost_1_70_0"
+            "${workspaceFolder}/lib/CommonTools/googletest/googletest/googlemock/include",
+            "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"
         ],
         "defaultDefines":[
             "UNICODE",
+            "SIMULATOR",
             "USING_NATIVE_THREADS",
             "CHIMERA_SIMULATOR",
             "DEBUG",

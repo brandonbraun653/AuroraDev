@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake Clean",
+      "type": "shell",
+      "command": "rm -rf ${workspaceFolder}/build/*",
+      "problemMatcher": []
+    },
+    {
+      "label": "Configure Simulator",
+      "type": "shell",
+      "command": "cmake -DTOOLCHAIN=gcc -DNATIVE_THREADS=ON -DCMAKE_BUILD_TYPE=Debug ./../",
+      "dependsOn": [
+        "CMake Clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
