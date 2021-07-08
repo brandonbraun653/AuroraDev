@@ -30,6 +30,24 @@ namespace Aurora::Test::SharedPtr
   -------------------------------------------------------------------------------*/
   static constexpr size_t DEFAULT_HEAP_SIZE = 1 * 1024 * 1024;
 
+  /* clang-format off */
+  static constexpr size_t BASE_SPTR_ALLOC_SIZE =
+    sizeof( size_t ) +                            /* Object counter data */
+    sizeof( Chimera::Thread::Mutex );             /* Thread lock data */
+
+  static constexpr size_t BASE_SPTR_OBJECT_SIZE =
+    sizeof( Aurora::Memory::IHeapAllocator* ) +   /* Heap pointer */
+    sizeof( size_t * ) +                          /* Object counter pointer */
+    sizeof( void * ) +                            /* Object data pointer */
+    sizeof( Chimera::Thread::Mutex * );           /* Object lock pointer */
+  /* clang-format on */
+
+  /*-------------------------------------------------------------------------------
+  Aliases
+  -------------------------------------------------------------------------------*/
+  template<typename T, const size_t BUFSIZE = 0>
+  using test_sptr = ::Aurora::Memory::shared_ptr<T, BUFSIZE>;
+
   /*-------------------------------------------------------------------------------
   Structures
   -------------------------------------------------------------------------------*/
@@ -47,6 +65,19 @@ namespace Aurora::Test::SharedPtr
   static_assert( std::is_trivial<TrivialTestObject>::value );
   static_assert( sizeof( TrivialTestObject ) == 24 );
 
+  struct TrivialLinkedList
+  {
+    test_sptr<TrivialLinkedList> next;
+    bool valid;
+    uint32_t data;
+  };
+
+  /*-------------------------------------------------------------------------------
+  Public Functions
+  -------------------------------------------------------------------------------*/
+  void initialize();
+  void fill_random_data( test_sptr<TrivialTestObject> &obj );
+
   /*-------------------------------------------------------------------------------
   Classes
   -------------------------------------------------------------------------------*/
@@ -55,6 +86,7 @@ namespace Aurora::Test::SharedPtr
   protected:
     virtual void SetUp()
     {
+      initialize();
       mHeapMemory = new uint8_t[ DEFAULT_HEAP_SIZE ];
       mHeap.assignMemoryPool( mHeapMemory, DEFAULT_HEAP_SIZE );
     }
@@ -72,6 +104,8 @@ namespace Aurora::Test::SharedPtr
   private:
     uint8_t *mHeapMemory;
   };
+
+
 }  // namespace Aurora::Test::SharedPtr
 
 #endif  /* !AURORA_TEST_SHARED_PTR_FIXTURES_HPP */

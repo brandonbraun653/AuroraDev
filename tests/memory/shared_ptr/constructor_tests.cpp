@@ -1,6 +1,6 @@
 /********************************************************************************
  *  File Name:
- *    basic_tests.cpp
+ *    constructor_tests.cpp
  *
  *  Description:
  *    Basic testing for the shared_ptr interface
@@ -17,27 +17,6 @@
 
 namespace Aurora::Test::SharedPtr
 {
-  /*-------------------------------------------------------------------------------
-  Aliases
-  -------------------------------------------------------------------------------*/
-  template<typename T, const size_t BUFSIZE = 0>
-  using test_sptr = ::Aurora::Memory::shared_ptr<T, BUFSIZE>;
-
-  /*-------------------------------------------------------------------------------
-  Constants
-  -------------------------------------------------------------------------------*/
-  /* clang-format off */
-  static constexpr size_t BASE_SPTR_ALLOC_SIZE =
-    sizeof( size_t ) +                            /* Object counter data */
-    sizeof( Chimera::Thread::Mutex );             /* Thread lock data */
-
-  static constexpr size_t BASE_SPTR_OBJECT_SIZE =
-    sizeof( Aurora::Memory::IHeapAllocator* ) +   /* Heap pointer */
-    sizeof( size_t * ) +                          /* Object counter pointer */
-    sizeof( void * ) +                            /* Object data pointer */
-    sizeof( Chimera::Thread::Mutex * );           /* Object lock pointer */
-  /* clang-format on */
-
   /*-------------------------------------------------------------------------------
   Tests
   -------------------------------------------------------------------------------*/
@@ -80,10 +59,10 @@ namespace Aurora::Test::SharedPtr
   {
     static constexpr size_t BUF_BYTES = 0;
 
-    test_sptr<void*, BUF_BYTES> default_object;
+    test_sptr<void *, BUF_BYTES> default_object;
     size_t expected_size = BASE_SPTR_ALLOC_SIZE;
 
-    expected_size += sizeof( void *);
+    expected_size += sizeof( void * );
     expected_size += BUF_BYTES;
 
     GTEST_ASSERT_EQ( expected_size, default_object.size() );
@@ -97,10 +76,10 @@ namespace Aurora::Test::SharedPtr
   {
     static constexpr size_t BUF_BYTES = 53;
 
-    test_sptr<void*, BUF_BYTES> default_object;
+    test_sptr<void *, BUF_BYTES> default_object;
     size_t expected_size = BASE_SPTR_ALLOC_SIZE;
 
-    expected_size += sizeof( void *);
+    expected_size += sizeof( void * );
     expected_size += BUF_BYTES;
 
     GTEST_ASSERT_EQ( expected_size, default_object.size() );
@@ -131,4 +110,4 @@ namespace Aurora::Test::SharedPtr
     GTEST_ASSERT_NE( nullptr, default_object.get() );
     GTEST_ASSERT_EQ( expected_size, actual_size );
   }
-}
+}  // namespace Aurora::Test::SharedPtr
