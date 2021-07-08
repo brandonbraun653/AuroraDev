@@ -34,6 +34,7 @@ add_subdirectory("lib/CommonTools/cmake/device/generic")
 # ====================================================
 # Add test directory
 # ====================================================
+add_subdirectory("tests")
 add_subdirectory("tests/memory")
 
 # ====================================================
@@ -52,11 +53,30 @@ add_subdirectory("tests/memory")
 
 gen_intf_lib(
   TARGET
-    aurora_test_harness_libs
+    aurora_test_harness_inc
   INTF_LIBRARIES
     # Public Includes
     aurora_intf_inc
     chimera_intf_inc
+
+    # Testing & Mock Libraries
+    gmock_inc
+    gtest_inc
+
+    # Target Properties
+    prj_device_target
+    prj_build_target
+
+  EXPORT_DIR
+    "${PROJECT_BINARY_DIR}/Test"
+)
+
+gen_intf_lib(
+  TARGET
+    aurora_test_harness_libs
+  INTF_LIBRARIES
+    # Headers
+    aurora_test_harness_inc
 
     # Utility Libraries
     aurora_core
@@ -72,16 +92,10 @@ gen_intf_lib(
 
     # Testing & Mock Libraries
     gmock_src
-    gmock_inc
     gtest_src
-    gtest_inc
 
     # Simulator networking
     zmq
-
-    # Target Properties
-    prj_device_target
-    prj_build_target
 
   EXPORT_DIR
     "${PROJECT_BINARY_DIR}/Test"

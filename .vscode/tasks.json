@@ -18,6 +18,15 @@
         "cwd": "${workspaceFolder}/build"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "Run Last Image",
+      "type": "shell",
+      "command": "./last_image",
+      "options": {
+        "cwd": "${workspaceFolder}/artifacts/last_build_version"
+      },
+      "problemMatcher": []
     }
   ]
 }

@@ -20,7 +20,11 @@
     "*.JLinkScript": "plaintext",
     "memory": "cpp",
     "thread": "cpp",
-    "pwm": "cpp"
+    "pwm": "cpp",
+    "*.ipp": "cpp",
+    "random": "cpp",
+    "future": "cpp",
+    "type_traits": "cpp"
   },
   "cSpell.words": [
     "exti"

@@ -27,22 +27,9 @@
 namespace Aurora::Test::Heap
 {
   /*-------------------------------------------------------------------------------
-  Structures
-  -------------------------------------------------------------------------------*/
-  /**
-   * @brief Copy of BlockLink_t for sizing calculations
-   * See original definition in heap.hpp
-   */
-  struct TestBlockLink_t
-  {
-    TestBlockLink_t *next;
-    size_t size;
-  };
-
-  /*-------------------------------------------------------------------------------
   Classes
   -------------------------------------------------------------------------------*/
-  class DefaultFixture : public ::testing::Test
+  class DefaultHeapFixture : public ::testing::Test
   {
   protected:
     virtual void SetUp()
@@ -62,7 +49,7 @@ namespace Aurora::Test::Heap
     void initializeHeap( const size_t bytes )
     {
       mHeapMemory = new uint8_t[ bytes ];
-      mHeap.assignPool( mHeapMemory, bytes );
+      mHeap.assignMemoryPool( mHeapMemory, bytes );
     }
 
     size_t random_value( const size_t max )
