@@ -59,7 +59,7 @@ namespace Aurora::Test::SharedPtr
   {
     static constexpr size_t BUF_BYTES = 0;
 
-    test_sptr<void *, BUF_BYTES> default_object;
+    test_sptr<void *> default_object( &mHeap, BUF_BYTES );
     size_t expected_size = BASE_SPTR_ALLOC_SIZE;
 
     expected_size += sizeof( void * );
@@ -76,7 +76,7 @@ namespace Aurora::Test::SharedPtr
   {
     static constexpr size_t BUF_BYTES = 53;
 
-    test_sptr<void *, BUF_BYTES> default_object;
+    test_sptr<void *> default_object( &mHeap, BUF_BYTES );
     size_t expected_size = BASE_SPTR_ALLOC_SIZE;
 
     expected_size += sizeof( void * );

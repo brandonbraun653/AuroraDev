@@ -36,6 +36,7 @@ namespace Aurora::Test::SharedPtr
     sizeof( Chimera::Thread::Mutex );             /* Thread lock data */
 
   static constexpr size_t BASE_SPTR_OBJECT_SIZE =
+    sizeof( size_t ) +                            /* Buffer size */
     sizeof( Aurora::Memory::IHeapAllocator* ) +   /* Heap pointer */
     sizeof( size_t * ) +                          /* Object counter pointer */
     sizeof( void * ) +                            /* Object data pointer */
@@ -45,8 +46,8 @@ namespace Aurora::Test::SharedPtr
   /*-------------------------------------------------------------------------------
   Aliases
   -------------------------------------------------------------------------------*/
-  template<typename T, const size_t BUFSIZE = 0>
-  using test_sptr = ::Aurora::Memory::shared_ptr<T, BUFSIZE>;
+  template<typename T>
+  using test_sptr = ::Aurora::Memory::shared_ptr<T>;
 
   /*-------------------------------------------------------------------------------
   Structures
