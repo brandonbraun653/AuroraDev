@@ -36,9 +36,11 @@ namespace Aurora::Test::Heap
     static constexpr size_t HEAP_ALLOC_MAX = 100 - sizeof( Aurora::Memory::BlockLink_t );
 
     initializeHeap( HEAP_MAX );
-    const size_t allocSize  = random_value( HEAP_ALLOC_MAX );
+    const size_t allocSize  = 35; // Force non-byte alignment
     const size_t startSize  = mHeap.available();
-    const size_t expectSize = startSize - ( allocSize + sizeof( Aurora::Memory::BlockLink_t ) );
+
+    // Subtract 1 byte to account for alignment issues
+    const size_t expectSize = startSize - 1 - ( allocSize + sizeof( Aurora::Memory::BlockLink_t ) );
 
     void *memory = mHeap.malloc( allocSize );
 

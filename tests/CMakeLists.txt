@@ -20,6 +20,7 @@ unit_test_executable(
   SOURCES
     shared_main.cpp
   LIBRARIES
+    aurora_tests_container
     aurora_tests_heap
     aurora_tests_shared_ptr
 )

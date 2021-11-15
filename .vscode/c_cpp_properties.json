@@ -1,6 +1,6 @@
 {
     "env": {
-        "defaultIncludePaths":[
+        "defaultIncludePaths": [
             "~/Programs/boost/boost_1_76_0",
             "${workspaceFolder}",
             "${workspaceFolder}/Aurora/include",
@@ -19,7 +19,7 @@
             "${workspaceFolder}/lib/CommonTools/googletest/googletest/googlemock/include",
             "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"
         ],
-        "defaultDefines":[
+        "defaultDefines": [
             "UNICODE",
             "SIMULATOR",
             "USING_NATIVE_THREADS",
@@ -28,22 +28,23 @@
             "_DEBUG",
             "_UNICODE",
             "__GNUC__"
-
         ],
         "defaultEmbeddedCStandard": "gnu17",
         "defaultEmbeddedCppStandard": "gnu++20"
     },
-
     "configurations": [
         {
             "name": "Simulator",
-            "includePath": ["${defaultIncludePaths}"],
+            "includePath": [
+                "${defaultIncludePaths}"
+            ],
             "defines": [
                 "${defaultDefines}"
             ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu17",
-            "cppStandard": "gnu++20"
+            "cppStandard": "gnu++20",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

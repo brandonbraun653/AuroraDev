@@ -23,7 +23,6 @@ endif()
 # ====================================================
 # Import common packages and projects
 # ====================================================
-find_package(Boost REQUIRED)
 add_subdirectory("Aurora")
 add_subdirectory("lib/Chimera")
 add_subdirectory("lib/ChimeraSim")
@@ -36,6 +35,7 @@ add_subdirectory("lib/CommonTools/cmake/device/generic")
 # ====================================================
 add_subdirectory("tests")
 add_subdirectory("tests/memory")
+add_subdirectory("tests/container")
 
 # ====================================================
 # Common Targets for Testing

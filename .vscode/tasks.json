@@ -4,7 +4,7 @@
     {
       "label": "CMake Clean",
       "type": "shell",
-      "command": "rm -rf ${workspaceFolder}/build/*",
+      "command": "mkdir -p ${workspaceFolder}/build; rm -rf ${workspaceFolder}/build/*",
       "problemMatcher": []
     },
     {
@@ -27,6 +27,33 @@
         "cwd": "${workspaceFolder}/artifacts/last_build_version"
       },
       "problemMatcher": []
-    }
+    },
+    {
+      "label": "Build Tests",
+      "type": "shell",
+      "command": "cmake --build . --target TestAll -j8",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "./TestAll",
+      "options": {
+        "cwd": "${workspaceFolder}/artifacts/last_build_version"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests w/Valgrind",
+      "type": "shell",
+      "command": "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./TestAll",
+      "options": {
+        "cwd": "${workspaceFolder}/artifacts/last_build_version"
+      },
+      "problemMatcher": []
+    },
   ]
 }
