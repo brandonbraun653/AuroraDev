@@ -48,6 +48,23 @@ namespace Aurora::Test::CircularBuffer
     GTEST_ASSERT_EQ( nullptr, cb.back() );
   }
 
+  TEST( RobustTests, PopWhenEmpty )
+  {
+    /*-------------------------------------------------------------------------
+    Setup
+    -------------------------------------------------------------------------*/
+    DummyObject fakeData[ 3 ];
+    auto cb = Aurora::Container::CircularBuffer<DummyObject>();
+    cb.init( fakeData, 3 );
+
+    /*-------------------------------------------------------------------------
+    Validate
+    -------------------------------------------------------------------------*/
+    auto default_object = DummyObject();
+    auto popped_object = cb.pop();
+    GTEST_ASSERT_EQ( sizeof( popped_object ), sizeof( default_object ) );
+  }
+
   TEST_F( BufferFixture, ValidAllocation )
   {
     auto cb = Aurora::Container::CircularBuffer<DummyObject>();
@@ -163,6 +180,32 @@ namespace Aurora::Test::CircularBuffer
     GTEST_ASSERT_EQ( true, cb.full() );
   }
 
+  TEST_F( BufferFixture, PushTillFailure )
+  {
+    DummyObject dummy;
+    auto cb = Aurora::Container::CircularBuffer<DummyObject>();
+
+    /*-------------------------------------------------------------------------
+    Setup
+    -------------------------------------------------------------------------*/
+    cb.init( this->test_data, this->test_element_size );
+    for ( auto x = 0; x < cb.capacity(); x++ )
+    {
+      GTEST_ASSERT_EQ( true, cb.push( dummy ) );
+    }
+
+    /*-------------------------------------------------------------------------
+    Validate loaded state
+    -------------------------------------------------------------------------*/
+    GTEST_ASSERT_EQ( cb.capacity(), cb.size() );
+    GTEST_ASSERT_EQ( true, cb.full() );
+
+    /*-------------------------------------------------------------------------
+    Validate pushing one more time will fail
+    -------------------------------------------------------------------------*/
+    GTEST_ASSERT_EQ( false, cb.push( dummy ) );
+  }
+
   TEST_F( BufferFixture, PushAndOverwrite )
   {
     DummyObject dummy1, dummy2, dummy3;
@@ -190,9 +233,43 @@ namespace Aurora::Test::CircularBuffer
     cb.pushOverwrite( dummy3 );
 
     /*-------------------------------------------------------------------------
-    Validate the front has moved
+    Validate the front has moved and the back is still valid
     -------------------------------------------------------------------------*/
     GTEST_ASSERT_EQ( 0, memcmp( &dummy2, cb.front(), sizeof( DummyObject ) ) );
+    GTEST_ASSERT_EQ( 0, memcmp( &dummy3, cb.back(), sizeof( DummyObject ) ) );
+  }
+
+  TEST_F( BufferFixture, OverwriteWhileNotFull )
+  {
+    DummyObject dummy1, dummy2, dummy3;
+    auto cb = Aurora::Container::CircularBuffer<DummyObject>();
+
+    /*-------------------------------------------------------------------------
+    Setup
+    -------------------------------------------------------------------------*/
+    dummy1.dummy0 = 3;
+    dummy2.dummy0 = 8;
+    dummy3.dummy0 = 10;
+
+    cb.init( this->test_data, this->test_element_size );
+    cb.push( dummy1 ); // This one will get overwritten
+
+    /*-------------------------------------------------------------------------
+    Make sure the front still contains the original data, then overwrite it.
+    -------------------------------------------------------------------------*/
+    GTEST_ASSERT_EQ( 0, memcmp( &dummy1, cb.front(), sizeof( DummyObject ) ) );
+    cb.pushOverwrite( dummy2 );
+    cb.pushOverwrite( dummy3 );
+
+    /*-------------------------------------------------------------------------
+    Validate no data has actually been overwritten
+    -------------------------------------------------------------------------*/
+    GTEST_ASSERT_EQ( 0, memcmp( &dummy1, cb.front(), sizeof( DummyObject ) ) );
+    cb.pop();
+    GTEST_ASSERT_EQ( 0, memcmp( &dummy2, cb.front(), sizeof( DummyObject ) ) );
+    cb.pop();
+    GTEST_ASSERT_EQ( 0, memcmp( &dummy3, cb.front(), sizeof( DummyObject ) ) );
+    cb.pop();
   }
 
   TEST_F( BufferFixture, PushAndValidateFrontBack )

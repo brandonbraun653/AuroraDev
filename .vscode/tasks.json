@@ -10,7 +10,7 @@
     {
       "label": "Configure Simulator",
       "type": "shell",
-      "command": "cmake -DTOOLCHAIN=gcc -DNATIVE_THREADS=ON -DCMAKE_BUILD_TYPE=Debug ./../",
+      "command": "cmake -DCOVERAGE=ON -DTOOLCHAIN=gcc -DNATIVE_THREADS=ON -DCMAKE_BUILD_TYPE=Debug ./../",
       "dependsOn": [
         "CMake Clean"
       ],
@@ -43,6 +43,15 @@
       "command": "./TestAll",
       "options": {
         "cwd": "${workspaceFolder}/artifacts/last_build_version"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests w/Coverage",
+      "type": "shell",
+      "command": "cmake --build . --target TestAllWithCoverage -j8",
+      "options": {
+        "cwd": "${workspaceFolder}/build"
       },
       "problemMatcher": []
     },

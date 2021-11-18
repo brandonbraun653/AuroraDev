@@ -14,10 +14,7 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#68217a99",
     "titleBar.inactiveForeground": "#e7e7e799",
-    "editorGroup.border": "#8a2ca2",
-    "panel.border": "#8a2ca2",
     "sash.hoverBorder": "#8a2ca2",
-    "sideBar.border": "#8a2ca2",
     "statusBarItem.remoteBackground": "#68217a",
     "statusBarItem.remoteForeground": "#e7e7e7"
   },
@@ -34,7 +31,14 @@
     "*.tcc": "cpp",
     "queue": "cpp",
     "condition_variable": "cpp",
-    "mutex": "cpp"
+    "mutex": "cpp",
+    "ranges": "cpp",
+    "interrupt": "cpp",
+    "array": "cpp",
+    "initializer_list": "cpp",
+    "string_view": "cpp",
+    "utility": "cpp",
+    "container": "cpp"
   },
   "cSpell.words": [
     "exti"
