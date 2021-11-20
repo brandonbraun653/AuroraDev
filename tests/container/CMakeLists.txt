@@ -1,8 +1,8 @@
 include("${PROJECT_ROOT}/tests/aurora_test_harness.cmake")
 
 set(sourcefiles
-  circular_buffer_tests.cpp
-  stream_buffer_tests.cpp
+  test_circular_buffer.cpp
+  test_mpmc_queue.cpp
 )
 
 # Tests as standalone executable

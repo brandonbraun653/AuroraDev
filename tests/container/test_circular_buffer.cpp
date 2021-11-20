@@ -13,11 +13,11 @@
 
 /* Testing Includes */
 #include <tests/headers.hpp>
-#include <tests/container/circular_buffer_fixture.hpp>
+#include <tests/container/fixture_circular_buffer.hpp>
 
 namespace Aurora::Test::CircularBuffer
 {
-  TEST( RobustTests, InvalidInit )
+  TEST( CB_RobustTests, InvalidInit )
   {
     /*-------------------------------------------------------------------------
     Setup
@@ -32,7 +32,7 @@ namespace Aurora::Test::CircularBuffer
     GTEST_ASSERT_EQ( false, cb.init( fakeData, 0 ) );
   }
 
-  TEST( RobustTests, EmptyBufferReferences )
+  TEST( CB_RobustTests, EmptyBufferReferences )
   {
     /*-------------------------------------------------------------------------
     Setup
@@ -48,7 +48,7 @@ namespace Aurora::Test::CircularBuffer
     GTEST_ASSERT_EQ( nullptr, cb.back() );
   }
 
-  TEST( RobustTests, PopWhenEmpty )
+  TEST( CB_RobustTests, PopWhenEmpty )
   {
     /*-------------------------------------------------------------------------
     Setup

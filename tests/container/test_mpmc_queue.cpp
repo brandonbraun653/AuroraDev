@@ -13,11 +13,15 @@
 
 /* Testing Includes */
 #include <tests/headers.hpp>
+#include <tests/container/fixture_mpmc_queue.hpp>
 
-namespace Aurora::Test::StreamBuffer
+namespace Aurora::Test::MPMCQueue
 {
-  TEST( Construction, BadInputs )
+  TEST( MPMC_RobustTests, InvalidInit )
   {
-    GTEST_ASSERT_EQ( true, true );
+    auto attr = Aurora::Container::MPMCAttr<TestObj>();
+    auto queue = Aurora::Container::MPMCQueue<TestObj>();
+
+    GTEST_ASSERT_EQ( false, queue.init( attr ) );
   }
 }
