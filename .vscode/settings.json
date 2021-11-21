@@ -38,9 +38,17 @@
     "initializer_list": "cpp",
     "string_view": "cpp",
     "utility": "cpp",
-    "container": "cpp"
+    "container": "cpp",
+    "logging": "cpp",
+    "chrono": "cpp",
+    "compare": "cpp",
+    "functional": "cpp",
+    "ratio": "cpp",
+    "tuple": "cpp",
+    "variant": "cpp"
   },
   "cSpell.words": [
-    "exti"
+    "exti",
+    "MPMC"
   ]
 }
