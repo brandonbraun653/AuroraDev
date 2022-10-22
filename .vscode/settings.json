@@ -46,7 +46,13 @@
     "functional": "cpp",
     "ratio": "cpp",
     "tuple": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "atomic": "cpp",
+    "fstream": "cpp",
+    "sstream": "cpp",
+    "regex": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp"
   },
   "cSpell.words": [
     "exti",

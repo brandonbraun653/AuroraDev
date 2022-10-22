@@ -34,8 +34,9 @@ add_subdirectory("lib/CommonTools/cmake/device/generic")
 # Add test directory
 # ====================================================
 add_subdirectory("tests")
-add_subdirectory("tests/memory")
 add_subdirectory("tests/container")
+add_subdirectory("tests/filesystem")
+add_subdirectory("tests/memory")
 
 # ====================================================
 # Common Targets for Testing
@@ -80,11 +81,12 @@ gen_intf_lib(
 
     # Utility Libraries
     aurora_core
+    aurora_database
+    aurora_datastore
+    aurora_filesystem_core
     aurora_hmi
     aurora_logging
     aurora_memory
-    aurora_database
-    aurora_datastore
 
     # Hardware Libraries
     chimera_core
