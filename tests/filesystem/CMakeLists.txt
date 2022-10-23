@@ -12,6 +12,8 @@ unit_test_executable(
     ${sourcefiles}
   LIBRARIES
     aurora_tests_shared_entry
+    aurora_filesystem_generic_driver
+    aurora_filesystem_lfs_driver
 )
 
 # Tests compiled into a library
@@ -22,6 +24,8 @@ gen_static_lib_variants(
     ${sourcefiles}
   PRV_LIBRARIES
     aurora_test_harness_inc
+    aurora_filesystem_generic_driver
+    aurora_filesystem_lfs_driver
   EXPORT_DIR
     "${PROJECT_BINARY_DIR}/Tests"
 )
