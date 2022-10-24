@@ -22,12 +22,13 @@
             "${workspaceFolder}/lib/CommonTools/googletest/googletest/googletest/include"
         ],
         "defaultDefines": [
-            "UNICODE",
-            "SIMULATOR",
-            "USING_NATIVE_THREADS",
             "CHIMERA_SIMULATOR",
             "CHIMERA_VIRTUAL",
             "DEBUG",
+            "DISABLE_DEBUG_BREAK",
+            "SIMULATOR",
+            "UNICODE",
+            "USING_NATIVE_THREADS",
             "_DEBUG",
             "_UNICODE",
             "__GNUC__"

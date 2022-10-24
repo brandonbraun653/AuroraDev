@@ -39,8 +39,8 @@ namespace Aurora::Test::Heap
     const size_t allocSize  = 35; // Force non-byte alignment
     const size_t startSize  = mHeap.available();
 
-    // Subtract 1 byte to account for alignment issues
-    const size_t expectSize = startSize - 1 - ( allocSize + sizeof( Aurora::Memory::BlockLink_t ) );
+    // Subtract 5 bytes to account for alignment issues due to portBYTE_ALIGNMENT
+    const size_t expectSize = startSize - 5 - ( allocSize + sizeof( Aurora::Memory::BlockLink_t ) );
 
     void *memory = mHeap.malloc( allocSize );
 

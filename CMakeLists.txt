@@ -39,18 +39,13 @@ add_subdirectory("tests/filesystem")
 add_subdirectory("tests/memory")
 
 # ====================================================
+# Global compiler flags
+# ====================================================
+target_compile_definitions(prj_build_target INTERFACE DISABLE_DEBUG_BREAK)
+
+# ====================================================
 # Common Targets for Testing
 # ====================================================
-# gen_intf_lib(
-#   TARGET
-#     project_inc
-#   INTF_DEFINES
-#     SIMULATOR
-#   INTF_INCLUDES
-#     "${PROJECT_ROOT}"
-#   EXPORT_DIR
-#     "${PROJECT_BINARY_DIR}/Project"
-# )
 
 gen_intf_lib(
   TARGET
