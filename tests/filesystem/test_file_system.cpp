@@ -154,7 +154,7 @@ namespace Aurora::Test::FileSystem
   TEST_F( LittleFSFixture, ExpectedUseCase )
   {
     FS::FileId  file;
-    std::string filename = testPath( "tst.txt" );
+    std::string filename = "/tst.txt";
 
     /*-------------------------------------------------------------------------
     Open the file

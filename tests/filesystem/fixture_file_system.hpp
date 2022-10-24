@@ -87,7 +87,7 @@ namespace Aurora::Test::FileSystem
   class LittleFSFixture : public ::testing::Test
   {
   protected:
-    const std::string     mnt_path     = "/lfs/";
+    const std::string     mnt_path     = "";
     const std::string     backing_file = "/tmp/aurora/lfs_tests/lfs_nor_file.bin";
     FS::VolumeId          mnt_vol;
     FS::LFS::Volume       lfs_vol;
@@ -113,7 +113,7 @@ namespace Aurora::Test::FileSystem
       lfs_vol.cfg.prog_size      = 16;
       lfs_vol.cfg.block_size     = props->blockSize;
       lfs_vol.cfg.block_count    = props->endAddress / props->blockSize;
-      lfs_vol.cfg.cache_size     = 16;
+      lfs_vol.cfg.cache_size     = 64;
       lfs_vol.cfg.lookahead_size = 16;
       lfs_vol.cfg.block_cycles   = 500;
       lfs_vol._dataFile          = backing_file;
@@ -129,7 +129,14 @@ namespace Aurora::Test::FileSystem
 
       FS::initialize();
       FS::VolumeId mnt_vol = FS::mount( mnt_path, intf );
+      if( mnt_vol < 0 )
+      {
+        FS::LFS::formatVolume( &lfs_vol );
+        mnt_vol = FS::mount( mnt_path, intf );
+      }
       GTEST_ASSERT_EQ( mnt_vol, 0 );
+
+      //int create_dir_error = lfs_mkdir( &lfs_vol.fs, "/" );
 
       /*-----------------------------------------------------------------------
       Initialize utility variables
